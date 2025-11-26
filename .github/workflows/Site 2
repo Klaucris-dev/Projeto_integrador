@@ -1,0 +1,569 @@
+                </button>
+               
+                <!-- Botão de Acesso Cliente/Logout -->
+                <button id="auth-btn" onclick="handleAuthAction()" class="bg-primary text-white font-bold py-2 px-4 rounded-full shadow-md transition duration-300 hover:bg-secondary-dark text-sm">
+                    Entrar
+                </button>
+               
+                <!-- Botão de Menu Mobile (Hamburger) -->
+                <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none ml-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+       
+        <!-- Menu Mobile (Dropdown) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-4 pb-2">
+            <nav class="flex flex-col space-y-2">
+                <a href="#home" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Início</a>
+                <a href="#cardapio" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Cardápio</a>
+                <a onclick="showSupplierModal(); hideMobileMenu();" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md">Nossos Fornecedores</a>
+               
+                <!-- Itens Quem Somos no mobile -->
+                <span class="block py-2 text-gray-700 font-semibold border-t border-gray-100">Quem Somos</span>
+                <a href="#missao" class="block pl-6 py-1 text-gray-600 hover:bg-gray-100 rounded-md" onclick="hideMobileMenu()">Missão</a>
+                <a href="#visao" class="block pl-6 py-1 text-gray-600 hover:bg-gray-100 rounded-md" onclick="hideMobileMenu()">Visão</a>
+                <a href="#valores" class="block pl-6 py-1 text-gray-600 hover:bg-gray-100 rounded-md" onclick="hideMobileMenu()">Valores</a>
+                <a href="#doacao" class="block pl-6 py-1 text-gray-600 hover:bg-gray-100 rounded-md" onclick="hideMobileMenu()">Impacto Social</a>
+                <!-- Fim Itens Quem Somos -->
+
+                <a href="#contato" class="block py-2 text-gray-700 hover:bg-gray-100 rounded-md border-t border-gray-100">Contato</a>
+               
+                <!-- Link Acesso Funcionário Mobile -->
+                <a onclick="showEmployeeLoginModal(); hideMobileMenu();" class="block py-2 text-sm text-gray-500 hover:text-primary rounded-md border-t border-gray-100">Acesso Funcionário</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção Principal (Hero) -->
+    <section id="home" class="bg-primary text-white py-20 md:py-32 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4">
+                Terra Viva
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 font-light">
+                O sabor fresco e vibrante da natureza no seu dia a dia.
+            </p>
+            <a href="#cardapio" class="inline-block bg-white text-primary font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                Veja Nosso Cardápio
+            </a>
+        </div>
+    </section>
+
+    <!-- Seção Carrossel de Imagens -->
+    <section id="carousel" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 relative">
+            <h2 class="text-4xl font-bold text-center text-primary mb-8">Nossa Experiência</h2>
+            <div id="image-carousel" class="overflow-hidden relative rounded-xl shadow-2xl">
+                <!-- Slides Container -->
+                <div id="slides-container" class="flex transition-transform duration-500 ease-in-out">
+                   
+                    <!-- Slide 1: Ambiente -->
+                    <div class="carousel-slide flex-shrink-0 w-full relative">
+                        <!-- https://placehold.co/1200x500/E6E8E3/388E3C?text=Ambiente+Acolhedor -->
+                        <img src="https://placehold.co/1200x500/E6E8E3/388E3C?text=Ambiente+Acolhedor" alt="[Imagem do ambiente interno do restaurante]" class="w-full h-96 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end justify-center p-6">
+                            <p class="text-white text-3xl font-bold">Um Espaço para Recarregar</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Produtos Frescos -->
+                    <div class="carousel-slide flex-shrink-0 w-full relative">
+                        <!-- https://placehold.co/1200x500/D0F0C0/228B22?text=Produtos+Frescos -->
+                        <img src="https://placehold.co/1200x500/D0F0C0/228B22?text=Produtos+Frescos" alt="[Imagem de vegetais e frutas frescas]" class="w-full h-96 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end justify-center p-6">
+                            <p class="text-white text-3xl font-bold">Ingredientes Colhidos na Hora</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Prato de Buffet -->
+                    <div class="carousel-slide flex-shrink-0 w-full relative">
+                        <!-- https://placehold.co/1200x500/F7F0E3/8B4513?text=Prato+de+Buffet -->
+                        <img src="https://placehold.co/1200x500/F7F0E3/8B4513?text=Prato+de+Buffet" alt="[Imagem de um prato de buffet vegetariano]" class="w-full h-96 object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end justify-center p-6">
+                            <p class="text-white text-3xl font-bold">Variedade e Sabor Incomparável</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Botão Anterior -->
+                <button id="prev-btn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition duration-300 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+
+                <!-- Botão Próximo -->
+                <button id="next-btn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition duration-300 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Destaques do Cardápio -->
+    <section id="cardapio" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-primary mb-8">Nossos Destaques Veggie</h2>
+           
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+               
+                <!-- Destaque 1: Lasanha de Abobrinha -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-2xl">
+                    <img src="https://placehold.co/600x400/D0F0C0/388E3C?text=Lasanha" alt="[Imagem de Lasanha de Abobrinha]" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-gray-900">Lasanha de Abobrinha</h3>
+                        <p class="text-gray-600 mb-4">Deliciosas camadas de abobrinha fresca, queijo cremoso de castanhas e molho de tomate caseiro. 100% vegana.</p>
+                        <!-- Usando a cor secundária (Coral) para o badge -->
+                        <span class="inline-block bg-secondary text-white text-sm px-3 py-1 rounded-full">Vegano</span>
+                    </div>
+                </div>
+
+                <!-- Destaque 2: Bowl de Grãos e Legumes -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-2xl">
+                    <img src="https://placehold.co/600x400/C0E0F0/228B22?text=Bowl+de+Grãos" alt="[Imagem de Bowl de Grãos e Legumes]" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-gray-900">Bowl de Grãos e Legumes</h3>
+                        <p class="text-gray-600 mb-4">Quinoa e lentilha, legumes da estação grelhados, abacate e um toque de limão. Perfeito para o almoço.</p>
+                        <span class="inline-block bg-primary text-white text-sm px-3 py-1 rounded-full">Sem Glúten</span>
+                    </div>
+                </div>
+
+                <!-- Destaque 3: Hambúrguer Vegano -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition duration-300 hover:shadow-2xl">
+                    <img src="https://placehold.co/600x400/F0D0C0/8B4513?text=Hamburguer+Veg" alt="[Imagem de Hambúrguer Vegano de Feijão]" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-gray-900">Hambúrguer de Feijão</h3>
+                        <p class="text-gray-600 mb-4">Nosso famoso hambúrguer feito com feijão preto e beterraba, servido no pão integral com maionese vegana.</p>
+                        <!-- Usando a cor secundária (Coral) para o badge -->
+                        <span class="inline-block bg-secondary text-white text-sm px-3 py-1 rounded-full">Favorito</span>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="text-center mt-12 space-y-4 md:space-y-0 md:space-x-4">
+                <!-- Botão Ver Menu -->
+                <button onclick="showMenuMessage()" class="bg-secondary text-white font-bold py-3 px-8 rounded-full shadow-md transition duration-300 transform hover:scale-105 hover:bg-secondary-dark w-full md:w-auto">
+                    Ver Menu Completo (PDF Simulado)
+                </button>
+               
+                <!-- NOVO Botão: Nossos Produtores Parceiros -->
+                <button onclick="showSupplierModal()" class="bg-primary text-white font-bold py-3 px-8 rounded-full shadow-md transition duration-300 transform hover:scale-105 hover:bg-green-700 w-full md:w-auto">
+                    Nossos Produtores Parceiros
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Nossa Filosofia (Atualizada para 'Quem Somos') -->
+    <section id="filosofia" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-center text-primary mb-6">Quem Somos: Nossa Filosofia Viva</h2>
+           
+            <div id="missao" class="max-w-4xl mx-auto mb-12 p-6 rounded-xl bg-green-50 shadow-inner">
+                <h3 class="text-3xl font-bold text-primary mb-3">Missão</h3>
+                <p class="text-lg text-gray-700">
+                    Nossa missão é promover o bem-estar e a sustentabilidade através da culinária vegetariana e vegana, garantindo que a comida saudável seja deliciosa, acessível e ética para todos os nossos clientes.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Visão -->
+                <div id="visao" class="p-6 bg-gray-50 rounded-xl shadow-md text-left">
+                    <svg class="w-10 h-10 mb-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    <h4 class="font-semibold text-2xl mb-2 text-primary">Visão</h4>
+                    <p class="text-gray-600">
+                        Ser o restaurante vegetariano e vegano mais reconhecido por sua excelência em sabor e seu impacto ambiental positivo em todo o país, inspirando uma mudança de hábitos alimentar sustentáveis na comunidade.
+                    </p>
+                </div>
+               
+                <!-- Valores -->
+                <div id="valores" class="p-6 bg-gray-50 rounded-xl shadow-md text-left">
+                    <svg class="w-10 h-10 mb-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z"></path></svg>
+                    <h4 class="font-semibold text-2xl mb-2 text-primary">Valores</h4>
+                    <ul class="text-sm text-gray-600 list-disc list-inside space-y-2">
+                        <li>**Sustentabilidade:** Priorizamos ingredientes locais e práticas de desperdício zero.</li>
+                        <li>**Frescor & Qualidade:** Garantimos o máximo de nutrientes e sabor em cada prato.</li>
+                        <li>**Ética:** Promovemos uma alimentação consciente e livre de crueldade.</li>
+                        <li>**Comunidade:** Apoiamos produtores locais e valorizamos nossa equipe.</li>
+                    </ul>
+                </div>
+            </div>
+           
+            <!-- Diferencial: Doação a cada 10 Refeições (Destaque Social) -->
+            <div id="doacao" class="max-w-4xl mx-auto mt-12 p-8 rounded-xl bg-secondary text-white shadow-2xl">
+                <div class="flex items-center justify-center space-x-4 mb-4">
+                    <!-- Ícone de Coração/Doação -->
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    <h3 class="text-3xl font-bold">Impacto Social: Refeição Solidária</h3>
+                </div>
+                <p class="text-xl font-light">
+                    Na Terra Viva, sua alimentação consciente vai além do seu prato. A cada **10 refeições** vendidas, nós doamos **1 refeição completa e nutritiva** para uma instituição de caridade local.
+                </p>
+                <p class="mt-4 text-sm opacity-80">
+                    Junte-se a nós na missão de alimentar não só o corpo, mas também a comunidade. Acreditamos que a boa comida deve ser compartilhada por todos.
+                </p>
+            </div>
+           
+        </div>
+    </section>
+
+    <!-- Seção de Contato/Localização -->
+    <section id="contato" class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-primary mb-12">Visite-nos ou Peça Agora!</h2>
+           
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white p-8 rounded-xl shadow-lg">
+               
+                <!-- Informações de Contato -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-900">Detalhes de Contato</h3>
+                    <p class="mb-2"><span class="font-bold text-primary">Endereço:</span> Rua da Sustentabilidade, 123 - Centro</p>
+                    <p class="mb-2"><span class="font-bold text-primary">Telefone:</span> (XX) 99999-9999</p>
+                    <p class="mb-2"><span class="font-bold text-primary">Email:</span> contato@terraviva.com.br</p>
+                    <p class="mb-4"><span class="font-bold text-primary">Horário:</span> Segunda a Sábado, das 11h30 às 15h30 e das 18h às 22h.</p>
+                   
+                    <h3 class="text-2xl font-semibold mt-6 mb-4 text-gray-900">Delivery</h3>
+                    <div class="flex space-x-4">
+                        <!-- Mantendo iFood e Rappi com cores originais, mas ajustando o hover para contraste -->
+                        <a href="#" class="bg-yellow-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-yellow-600 transition">iFood</a>
+                        <a href="#" class="bg-pink-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-pink-700 transition">Rappi</a>
+                    </div>
+                </div>
+
+                <!-- Formulário de Contato Simulado -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-900">Envie uma Mensagem</h3>
+                    <form onsubmit="handleContact(event)">
+                        <input type="text" id="nome" placeholder="Seu Nome" required class="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
+                        <input type="email" id="email" placeholder="Seu E-mail" required class="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
+                        <textarea id="mensagem" placeholder="Sua Mensagem / Reserva" rows="4" required class="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary"></textarea>
+                        <!-- Botão de Envio usa a cor primária (Verde) -->
+                        <button type="submit" class="w-full btn-primary bg-primary text-white font-bold py-3 rounded-lg shadow-md transition duration-300 transform hover:scale-[1.01]">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+             <!-- Mensagem de Feedback agora usa a cor secundária (Coral) -->
+            <div id="feedback-message" class="hidden fixed top-4 left-1/2 transform -translate-x-1/2 bg-secondary text-white p-4 rounded-lg shadow-xl z-50">
+                <!-- Conteúdo da mensagem de feedback será inserido aqui -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 Terra Viva. Todos os direitos reservados.</p>
+            <p class="text-sm mt-2">Feito com foco na Sustentabilidade e Sabor.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Login do Funcionário (Simulação) -->
+    <div id="employee-modal-overlay" class="modal-overlay hidden">
+        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-sm w-11/12 relative">
+           
+            <!-- Botão Fechar -->
+            <button onclick="closeEmployeeLoginModal()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <h3 class="text-2xl font-bold text-primary mb-6 text-center">Acesso Funcionário</h3>
+           
+            <form onsubmit="handleEmployeeLogin(event)">
+                <input type="email" id="employee-email" placeholder="E-mail de Funcionário" required class="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
+                <input type="password" id="employee-password" placeholder="Senha" required class="w-full p-3 mb-6 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary">
+               
+                <button type="submit" class="w-full bg-secondary text-white font-bold py-3 rounded-lg shadow-md transition duration-300 hover:bg-secondary-dark">
+                    Acessar o Sistema
+                </button>
+            </form>
+            <p id="employee-auth-status" class="mt-4 text-center text-sm text-red-500 hidden">Credenciais inválidas.</p>
+        </div>
+    </div>
+   
+    <!-- NOVO: Modal de Fornecedores (Simulação) -->
+    <div id="supplier-modal-overlay" class="modal-overlay hidden">
+        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-xl w-11/12 relative max-h-[90vh] overflow-y-auto">
+           
+            <!-- Botão Fechar -->
+            <button onclick="closeSupplierModal()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <h3 class="text-3xl font-bold text-primary mb-6 text-center border-b pb-2">Nossos Produtores e Parceiros</h3>
+           
+            <p class="text-gray-700 mb-6 text-center">
+                A qualidade dos nossos pratos começa no campo. Conheça as famílias e fazendas que cultivam com paixão e sustentabilidade os ingredientes que chegam até você.
+            </p>
+
+            <!-- Lista de Fornecedores -->
+            <div class="space-y-6">
+               
+                <!-- Fornecedor 1: Horta Orgânica Esperança -->
+                <div class="border p-4 rounded-lg shadow-sm flex items-start space-x-4 bg-green-50">
+                    <div class="text-primary text-3xl font-bold pt-1">🌱</div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-900">Horta Orgânica Esperança</h4>
+                        <p class="text-sm text-gray-600">Localização: Zona Rural de São Paulo - (30km de distância)</p>
+                        <p class="mt-2 text-gray-700">
+                            Especializados em verduras folhosas, legumes da estação e ervas aromáticas. Utilizam métodos de cultivo 100% orgânicos, sem pesticidas, garantindo o máximo frescor.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fornecedor 2: Rancho das Castanhas -->
+                <div class="border p-4 rounded-lg shadow-sm flex items-start space-x-4 bg-orange-50">
+                    <div class="text-secondary text-3xl font-bold pt-1">🌰</div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-900">Rancho das Castanhas</h4>
+                        <p class="text-sm text-gray-600">Localização: Minas Gerais - (150km de distância)</p>
+                        <p class="mt-2 text-gray-700">
+                            Nos fornecem as melhores castanhas de caju e do Pará para nossos queijos veganos e sobremesas. Foco em colheita sustentável e comércio justo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fornecedor 3: Apiário Sol & Mel -->
+                <div class="border p-4 rounded-lg shadow-sm flex items-start space-x-4 bg-yellow-50">
+                    <div class="text-yellow-600 text-3xl font-bold pt-1">🍯</div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-900">Apiário Sol & Mel</h4>
+                        <p class="text-sm text-gray-600">Localização: Serra da Mantiqueira - (200km de distância)</p>
+                        <p class="mt-2 text-gray-700">
+                            Parceiros na produção do nosso mel orgânico (para pratos não veganos) e no pólen. Trabalho focado na preservação das abelhas e polinização natural.
+                        </p>
+                    </div>
+                </div>
+            </div>
+           
+            <p class="mt-8 text-center text-sm text-gray-500">
+                Interessado em ser um fornecedor? Entre em contato através do formulário abaixo.
+            </p>
+        </div>
+    </div>
+
+
+    <script>
+        // JS para o menu mobile e dropdowns
+        const mobileMenu = document.getElementById('mobile-menu');
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+       
+        // Esconder menu mobile ao clicar em um link
+        function hideMobileMenu() {
+             mobileMenu.classList.add('hidden');
+        }
+
+        // Função para mostrar mensagem de feedback (substituindo o alert)
+        window.showFeedback = function(message, duration = 3000) {
+            const feedbackBox = document.getElementById('feedback-message');
+            feedbackBox.textContent = message;
+            feedbackBox.classList.remove('hidden');
+           
+            setTimeout(() => {
+                feedbackBox.classList.add('hidden');
+            }, duration);
+        }
+
+        // Simulação de visualização de menu
+        function showMenuMessage() {
+            window.showFeedback("Carregando o Menu Completo... (Simulação de PDF)", 4000);
+        }
+
+        // Simulação de envio do formulário de contato
+        function handleContact(event) {
+            event.preventDefault(); // Impede o envio real do formulário
+           
+            const nome = document.getElementById('nome').value;
+           
+            // Limpa o formulário
+            document.getElementById('nome').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('mensagem').value = '';
+
+            window.showFeedback(`Obrigado(a), ${nome}! Sua mensagem foi enviada com sucesso para o Terra Viva.`, 5000);
+        }
+
+        // JS para o Carrossel de Imagens
+        const slidesContainer = document.getElementById('slides-container');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const totalSlides = slides.length;
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            currentSlide = (index + totalSlides) % totalSlides;
+            const offset = -currentSlide * 100;
+            slidesContainer.style.transform = `translateX(${offset}%)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+            resetAutoAdvance();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+            resetAutoAdvance();
+        });
+
+        let autoAdvanceInterval;
+
+        function startAutoAdvance() {
+            autoAdvanceInterval = setInterval(() => {
+                showSlide(currentSlide + 1);
+            }, 5000);
+        }
+
+        function resetAutoAdvance() {
+            clearInterval(autoAdvanceInterval);
+            startAutoAdvance();
+        }
+
+        startAutoAdvance();
+        // Fim JS Carrossel
+
+
+        // JS para Login do Funcionário (Modal)
+        const employeeModal = document.getElementById('employee-modal-overlay');
+        const employeeStatus = document.getElementById('employee-auth-status');
+
+        function showEmployeeLoginModal() {
+            employeeModal.classList.remove('hidden');
+            employeeStatus.classList.add('hidden');
+            document.getElementById('employee-email').value = '';
+            document.getElementById('employee-password').value = '';
+        }
+
+        function closeEmployeeLoginModal() {
+            employeeModal.classList.add('hidden');
+        }
+
+        function handleEmployeeLogin(event) {
+            event.preventDefault();
+           
+            const email = document.getElementById('employee-email').value;
+            const password = document.getElementById('employee-password').value;
+
+            const DUMMY_EMAIL = "gerente@terraviva.com";
+            const DUMMY_PASSWORD = "admin";
+
+            if (email === DUMMY_EMAIL && password === DUMMY_PASSWORD) {
+                employeeStatus.classList.add('hidden');
+                closeEmployeeLoginModal();
+                window.showFeedback("Acesso de Funcionário concedido! (Simulado: Acesso ao Dashboard/Database)", 6000);
+            } else {
+                employeeStatus.textContent = "Credenciais inválidas. Tente novamente.";
+                employeeStatus.classList.remove('hidden');
+                document.getElementById('employee-password').value = '';
+            }
+        }
+        window.showEmployeeLoginModal = showEmployeeLoginModal;
+        window.closeEmployeeLoginModal = closeEmployeeLoginModal;
+        window.handleEmployeeLogin = handleEmployeeLogin;
+        // Fim JS Login do Funcionário
+       
+        // NOVO JS para Modal de Fornecedores
+        const supplierModal = document.getElementById('supplier-modal-overlay');
+
+        window.showSupplierModal = function() {
+            supplierModal.classList.remove('hidden');
+        }
+
+        window.closeSupplierModal = function() {
+            supplierModal.classList.add('hidden');
+        }
+        // Fim JS Modal de Fornecedores
+
+    </script>
+
+    <!-- Script de Autenticação Firebase (MANDATORY) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Variáveis globais do Firebase (MANDATORY)
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+
+        // Instâncias
+        let app, auth, db;
+
+        async function initializeFirebase() {
+            try {
+                if (Object.keys(firebaseConfig).length === 0) {
+                    console.error("A configuração do Firebase está faltando. Não será possível usar o banco de dados.");
+                    return;
+                }
+                setLogLevel('debug'); // Ativa o log para debugging
+
+                app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                // 1. Configura o Listener de Estado de Autenticação
+                onAuthStateChanged(auth, (user) => {
+                    const authBtn = document.getElementById('auth-btn');
+                    if (user) {
+                        // Usuário logado
+                        authBtn.textContent = 'Sair';
+                        authBtn.classList.remove('bg-primary');
+                        authBtn.classList.add('bg-secondary', 'hover:bg-secondary-dark');
+                        console.log(`Usuário autenticado: ${user.uid}`);
+                        // No futuro, aqui você carregaria dados privados
+                    } else {
+                        // Usuário deslogado
+                        authBtn.textContent = 'Entrar';
+                        authBtn.classList.remove('bg-secondary', 'hover:bg-secondary-dark');
+                        authBtn.classList.add('bg-primary');
+                        console.log('Nenhum usuário autenticado.');
+                    }
+                });
+
+                // 2. Realiza o login inicial (Custom Token ou Anônimo)
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                    console.log('Login com Custom Token bem-sucedido.');
+                } else {
+                    await signInAnonymously(auth);
+                    console.log('Login anônimo bem-sucedido.');
+                }
+
+            } catch (error) {
+                console.error("Falha na inicialização ou login do Firebase:", error);
+            }
+        }
+
+        // Função de Ação do Botão Login/Sair (Cliente)
+        window.handleAuthAction = async function() {
+            if (!auth) {
+                await initializeFirebase();
+                return;
+            }
+
+            if (auth.currentUser) {
+                // Se logado, deslogar (Cliente)
+                try {
+                    await signOut(auth);
+                    window.showFeedback("Você saiu da sua conta.", 3000);
+                } catch (error) {
+                    console.error("Erro ao sair:", error);
+                    window.showFeedback("Erro ao sair. Tente novamente.", 3000);
+                }
+            } else {
+                // Se deslogado, tentar logar novamente (Cliente)
+                window.showFeedback("Tentando entrar...", 3000);
+                await initializeFirebase();
+            }
+        }
+
+        // Inicializa o Firebase ao carregar a janela
+        window.addEventListener('load', initializeFirebase);
+    </script>
+</body>
+</html>
